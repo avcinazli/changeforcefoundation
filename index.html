@@ -1,250 +1,51 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ChangeForce Foundation | Salesforce Ekosisteminde Eşit Fırsatlar</title>
-<meta name="description" content="ChangeForce Foundation — göçmenler, gençler ve kadınlar dahil farklı geçmişlerden bireylerin Salesforce ekosisteminde kariyer fırsatlarına erişmesi için eğitim, mentorluk, danışmanlık ve kaynak sağlayan kâr amacı gütmeyen kuruluş.">
-<style>
-:root{
-  --navy:#0b1f33;
-  --navy-2:#102a44;
-  --cyan:#17c3e6;
-  --green:#3fbf3f;
-  --blue:#2196f3;
-  --text:#1e2a36;
-  --muted:#5b6b7a;
-  --bg:#ffffff;
-  --bg-soft:#f4f8fb;
-  --border:#e3ebf2;
-  --radius:12px;
-  --shadow:0 10px 30px rgba(11,31,51,.08);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
-img{max-width:100%;display:block}
-a{text-decoration:none;color:inherit}
-.container{max-width:1180px;margin:0 auto;padding:0 24px}
-section{padding:72px 0}
-h2.section-title{font-size:1.9rem;color:var(--navy);margin-bottom:10px}
-p.section-sub{color:var(--muted);max-width:720px;margin-bottom:44px}
-.center{text-align:center}
-.center p.section-sub{margin-left:auto;margin-right:auto}
-.btn{display:inline-block;padding:12px 30px;border-radius:8px;font-weight:600;font-size:.93rem;transition:.25s;cursor:pointer;border:none}
-.btn-primary{background:linear-gradient(90deg,var(--green),var(--cyan));color:#fff}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(23,195,230,.35)}
-.btn-outline{border:2px solid var(--cyan);color:var(--cyan);background:transparent}
-.btn-outline:hover{background:var(--cyan);color:#fff}
-.link-more{color:var(--cyan);font-weight:600;font-size:.9rem}
-.link-more:hover{text-decoration:underline}
-
-/* ===== Header ===== */
-header{position:sticky;top:0;z-index:100;background:var(--navy);box-shadow:0 2px 14px rgba(0,0,0,.25)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:80px}
-.nav .logo img{height:56px;width:auto}
-.nav > ul{display:flex;gap:6px;list-style:none;align-items:center}
-.nav > ul > li{position:relative}
-.nav > ul > li > a{color:#d7e3ee;font-size:.92rem;font-weight:500;transition:.2s;padding:10px 12px;border-radius:6px;display:flex;align-items:center;gap:5px}
-.nav > ul > li > a:hover{color:var(--cyan)}
-.nav .caret{font-size:.6rem;opacity:.7}
-.nav .apply{background:linear-gradient(90deg,var(--green),var(--cyan));color:#fff;padding:11px 24px;border-radius:8px;font-weight:600;margin-left:8px}
-.nav .apply:hover{color:#fff;box-shadow:0 6px 18px rgba(23,195,230,.4)}
-/* dropdowns */
-.dropdown{position:absolute;top:100%;left:0;background:#fff;border-radius:10px;box-shadow:0 18px 44px rgba(11,31,51,.18);padding:18px;min-width:520px;display:none;grid-template-columns:1fr 1fr;gap:4px}
-.dropdown.narrow{min-width:250px;grid-template-columns:1fr}
-li:hover > .dropdown{display:grid}
-.dropdown a{display:flex;gap:12px;align-items:flex-start;padding:11px 12px;border-radius:8px;transition:.15s}
-.dropdown a:hover{background:var(--bg-soft)}
-.dropdown .di{width:36px;height:36px;flex:none;border-radius:8px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(63,191,63,.13),rgba(23,195,230,.15))}
-.dropdown b{display:block;color:var(--navy);font-size:.88rem}
-.dropdown span{font-size:.76rem;color:var(--muted);line-height:1.4;display:block}
-.nav-toggle{display:none;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer}
-
-/* ===== Hero ===== */
-.hero{background:linear-gradient(120deg,var(--navy) 0%,var(--navy-2) 50%,#0e3a52 100%);color:#fff;padding:96px 0 140px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;right:-160px;top:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(23,195,230,.2),transparent 70%)}
-.hero .container{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-.hero .kicker{display:inline-block;color:var(--green);font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
-.hero h1{font-size:2.6rem;line-height:1.18;margin-bottom:16px}
-.hero h1 span{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{color:#b9c8d6;font-size:1.05rem;margin-bottom:30px;max-width:520px}
-.hero-art svg{width:100%;max-width:420px;height:auto;margin:0 auto}
-/* wave divider */
-.wave{position:absolute;bottom:-1px;left:0;right:0;line-height:0;z-index:1}
-.wave svg{width:100%;height:90px;display:block}
-
-/* ===== Success story (carousel) ===== */
-.story{background:#fff;text-align:center;padding:72px 0 64px}
-.story .avatar{width:74px;height:74px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.5rem;background:linear-gradient(135deg,var(--green),var(--cyan));box-shadow:0 8px 20px rgba(23,195,230,.3)}
-.story .slide{display:none;max-width:820px;margin:0 auto}
-.story .slide.active{display:block;animation:fade .5s}
-@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.story blockquote{font-size:1.28rem;line-height:1.65;font-style:italic;color:var(--navy);margin-bottom:20px}
-.story .who b{color:var(--navy)}
-.story .who span{display:block;color:var(--muted);font-size:.9rem}
-.dots{display:flex;gap:9px;justify-content:center;margin-top:26px}
-.dots button{width:11px;height:11px;border-radius:50%;border:none;background:var(--border);cursor:pointer;transition:.2s;padding:0}
-.dots button.on{background:var(--cyan);transform:scale(1.25)}
-
-/* ===== About ===== */
-.about .container{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
-.about p{color:var(--muted);margin-bottom:16px}
-.facts{background:var(--bg-soft);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
-.facts .row{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--border);font-size:.92rem}
-.facts .row:last-child{border-bottom:none}
-.facts .row b{color:var(--navy)}
-.facts .row span{color:var(--muted);text-align:right}
-.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
-.chip{background:linear-gradient(135deg,rgba(63,191,63,.1),rgba(23,195,230,.12));border:1px solid var(--border);color:var(--navy);font-size:.78rem;font-weight:600;padding:6px 14px;border-radius:50px}
-
-/* ===== Programs: 3 cards with visual top ===== */
-.expertise{background:var(--bg-soft)}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.xcard{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:.25s;box-shadow:var(--shadow)}
-.xcard:hover{transform:translateY(-6px);border-color:var(--cyan)}
-.xcard .visual{height:180px;position:relative;display:flex;align-items:center;justify-content:center}
-.v1{background:linear-gradient(135deg,#0e3a52,var(--cyan))}
-.v2{background:linear-gradient(135deg,#123a1f,var(--green))}
-.v3{background:linear-gradient(135deg,var(--navy),var(--blue))}
-.xcard .visual svg{width:120px;height:120px;opacity:.95}
-.xcard .body{padding:26px 24px 24px;display:flex;flex-direction:column;flex:1}
-.xcard h3{color:var(--navy);font-size:1.2rem;margin-bottom:8px}
-.xcard p{color:var(--muted);font-size:.92rem;margin-bottom:16px;flex:1}
-.xcard .actions{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.xcard .actions .btn{padding:10px 20px;font-size:.85rem}
-
-/* ===== Expertise areas: uniform icon grid ===== */
-.grid-services{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.service{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:26px 20px;text-align:center;transition:.25s}
-.service:hover{border-color:var(--green);transform:translateY(-4px);box-shadow:var(--shadow)}
-.service .icon{width:48px;height:48px;margin:0 auto 14px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(63,191,63,.14),rgba(23,195,230,.16))}
-.service h4{color:var(--navy);font-size:.98rem;margin-bottom:6px}
-.service p{font-size:.84rem;color:var(--muted)}
-
-/* ===== Blog: featured + grid ===== */
-.blog{background:var(--bg-soft)}
-.blog-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:26px}
-.bcard{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:.25s;display:flex;flex-direction:column}
-.bcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--cyan)}
-.bcard .thumb{display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2rem}
-.bfeat .thumb{height:260px;font-size:3.4rem}
-.bcard .body{padding:20px 22px}
-.bcard .date{font-size:.76rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-.bcard h3{font-size:1rem;color:var(--navy);margin:6px 0 8px;line-height:1.4}
-.bfeat h3{font-size:1.35rem}
-.bcard p{font-size:.86rem;color:var(--muted)}
-.blog-side{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.blog-side .thumb{height:96px}
-.blog-side h3{font-size:.88rem;margin:4px 0 0}
-.blog-side .body{padding:14px 16px 16px}
-.t1{background:linear-gradient(135deg,#0e3a52,var(--cyan))}
-.t2{background:linear-gradient(135deg,#14532d,var(--green))}
-.t3{background:linear-gradient(135deg,var(--navy),var(--blue))}
-.t4{background:linear-gradient(135deg,#0b3a44,#1de9b6)}
-.t5{background:linear-gradient(135deg,#1a2f52,#7c4dff)}
-.blog .center-link{text-align:center;margin-top:36px}
-
-/* ===== Supporters strip ===== */
-.refs{padding:56px 0;border-top:1px solid var(--border)}
-.refs h2{text-align:center;font-size:1.15rem;color:var(--muted);font-weight:600;margin-bottom:34px;letter-spacing:.04em}
-.refs-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center}
-.ref{background:#fff;border:1px solid var(--border);border-radius:10px;padding:20px 38px;color:#8fa2b3;font-weight:700;letter-spacing:.06em;font-size:1.02rem;filter:grayscale(1);transition:.25s}
-.ref:hover{filter:none;color:var(--navy);border-color:var(--cyan)}
-
-/* ===== Contact: vertical stacked form ===== */
-.contact{background:linear-gradient(135deg,var(--navy),#0e3a52);color:#fff}
-.contact .container{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-.contact h2{font-size:1.9rem;margin-bottom:12px}
-.contact .info > p{color:#b9c8d6;margin-bottom:26px}
-.contact .line{display:flex;gap:12px;align-items:center;margin-bottom:14px;font-size:.95rem;color:#dbe7f1}
-.contact .line .dot{width:38px;height:38px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08)}
-form{background:#fff;border-radius:var(--radius);padding:34px;box-shadow:0 24px 60px rgba(0,0,0,.3);color:var(--text)}
-label{font-size:.85rem;font-weight:600;color:var(--navy);display:block;margin:14px 0 6px}
-label:first-child{margin-top:0}
-input,textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font:inherit;font-size:.93rem;background:var(--bg-soft)}
-input:focus,textarea:focus{outline:2px solid var(--cyan);border-color:transparent;background:#fff}
-.consent{display:flex;gap:10px;align-items:flex-start;margin:16px 0 20px;font-size:.82rem;color:var(--muted)}
-.consent input{width:auto;margin-top:3px}
-
-/* ===== Footer ===== */
-footer{background:var(--navy);color:#aebfce;padding:64px 0 0;border-top:1px solid rgba(255,255,255,.08)}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1.2fr;gap:36px;padding-bottom:48px}
-.foot-grid img{height:56px;width:auto;margin-bottom:16px}
-.foot-grid h5{color:#fff;font-size:.95rem;margin-bottom:14px;letter-spacing:.03em}
-.foot-grid ul{list-style:none}
-.foot-grid li{margin-bottom:9px}
-.foot-grid a{font-size:.88rem;transition:.2s}
-.foot-grid a:hover{color:var(--cyan)}
-.foot-grid p{font-size:.86rem}
-.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;display:flex;justify-content:space-between;align-items:center;font-size:.83rem;flex-wrap:wrap;gap:10px}
-.social{display:flex;gap:12px}
-.social a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:.2s}
-.social a:hover{background:var(--cyan)}
-.social svg{width:17px;height:17px;fill:#fff}
-
-/* ===== Responsive ===== */
-@media(max-width:960px){
-  .hero .container{grid-template-columns:1fr}
-  .hero-art{display:none}
-  .grid-3{grid-template-columns:1fr}
-  .grid-services{grid-template-columns:1fr 1fr}
-  .blog-wrap{grid-template-columns:1fr}
-  .about .container{grid-template-columns:1fr}
-  .contact .container{grid-template-columns:1fr}
-  .foot-grid{grid-template-columns:1fr 1fr}
-  .nav > ul{display:none;position:absolute;top:80px;left:0;right:0;background:var(--navy);flex-direction:column;padding:20px;gap:8px;box-shadow:0 12px 20px rgba(0,0,0,.3);align-items:flex-start}
-  .nav > ul.open{display:flex}
-  .dropdown{position:static;min-width:0;box-shadow:none;background:rgba(255,255,255,.04);grid-template-columns:1fr}
-  .dropdown b{color:#fff}
-  .nav-toggle{display:block}
-}
-@media(max-width:600px){
-  .grid-services,.blog-side{grid-template-columns:1fr}
-  .hero h1{font-size:1.9rem}
-  section{padding:52px 0}
-}
-</style>
+<title>ChangeForce Foundation | Equal Opportunities in the Salesforce Ecosystem</title>
+<meta name="description" content="ChangeForce Foundation is a non-profit providing training, mentorship, consulting and resources to empower individuals from diverse and minority backgrounds — including migrants, young people and women — to access career opportunities within the Salesforce ecosystem.">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- ============ HEADER ============ -->
 <header>
   <div class="container nav">
-    <a href="#" class="logo"><img src="logo.png" alt="ChangeForce Foundation"></a>
+    <a href="index.html" class="logo"><img src="logo.png" alt="ChangeForce Foundation"></a>
     <button class="nav-toggle" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
     <ul id="menu">
-      <li><a href="#hakkimizda">Hakkımızda</a></li>
+      <li><a href="about.html">About Us</a></li>
       <li>
-        <a href="#programlar">Programlarımız <span class="caret">▼</span></a>
+        <a href="index.html#programs">Programs <span class="caret">▼</span></a>
         <div class="dropdown">
-          <a href="#uzmanlik"><div class="di"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#17c3e6" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"/></svg></div><div><b>Salesforce Admin Eğitimi</b><span>Sıfırdan sertifikaya uygulamalı eğitim</span></div></a>
-          <a href="#uzmanlik"><div class="di"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#3fbf3f" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 17v-5m4 5V7m4 10v-3"/></svg></div><div><b>SF Business Analyst</b><span>İş analistliği yetkinlikleri ve pratik</span></div></a>
-          <a href="#uzmanlik"><div class="di"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2196f3" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><b>Mentorluk Programı</b><span>Ekosistemden deneyimli birebir mentorlar</span></div></a>
-          <a href="#uzmanlik"><div class="di"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#17c3e6" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><div><b>Staj Programı</b><span>Gerçek projelerde ilk iş deneyimi</span></div></a>
-          <a href="#uzmanlik"><div class="di"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#3fbf3f" stroke-width="2"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3 12 12"/><path d="M16 3h5v5"/></svg></div><div><b>Kariyer Değişimi Desteği</b><span>Teknolojiye geçiş için yol haritası</span></div></a>
-          <a href="#uzmanlik"><div class="di"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2196f3" stroke-width="2"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M12 3v8m-4-4 4 4 4-4"/></svg></div><div><b>NonProfit Danışmanlığı</b><span>STK'lar için NPSP, CRM ve dijitalleşme</span></div></a>
+          <a href="salesforce-training.html"><div><b>Salesforce Admin Training</b><span>From zero to certification, hands-on</span></div></a>
+          <a href="business-analyst.html"><div><b>SF Business Analyst</b><span>Business analysis skills and practice</span></div></a>
+          <a href="mentorship.html"><div><b>Mentorship Program</b><span>1:1 mentors from the ecosystem</span></div></a>
+          <a href="internship.html"><div><b>Internship Program</b><span>First work experience on real projects</span></div></a>
+          <a href="career-change.html"><div><b>Career Change Support</b><span>A roadmap into tech</span></div></a>
+          <a href="consulting.html"><div><b>NonProfit Consulting</b><span>NPSP, CRM &amp; digitization for NGOs</span></div></a>
         </div>
       </li>
       <li>
-        <a href="#hakkimizda">Kimler İçin <span class="caret">▼</span></a>
+        <a href="about.html#who">Who We Serve <span class="caret">▼</span></a>
         <div class="dropdown narrow">
-          <a href="#hakkimizda"><div><b>Göçmenler</b></div></a>
-          <a href="#hakkimizda"><div><b>Gençler</b></div></a>
-          <a href="#hakkimizda"><div><b>Kadınlar</b></div></a>
-          <a href="#hakkimizda"><div><b>Kariyer Değiştirenler</b></div></a>
+          <a href="about.html#who"><div><b>Migrants</b></div></a>
+          <a href="about.html#who"><div><b>Young People</b></div></a>
+          <a href="about.html#who"><div><b>Women</b></div></a>
+          <a href="about.html#who"><div><b>Career Changers</b></div></a>
         </div>
       </li>
       <li>
-        <a href="#blog">Bilgi Kaynağı <span class="caret">▼</span></a>
+        <a href="blog.html">Resources <span class="caret">▼</span></a>
         <div class="dropdown narrow">
-          <a href="#blog"><div><b>Blog</b></div></a>
-          <a href="#basari"><div><b>Başarı Hikayeleri</b></div></a>
-          <a href="#blog"><div><b>Sık Sorulan Sorular</b></div></a>
+          <a href="blog.html"><div><b>Blog</b></div></a>
+          <a href="index.html#stories"><div><b>Success Stories</b></div></a>
+          <a href="faq.html"><div><b>FAQ</b></div></a>
         </div>
       </li>
-      <li><a href="#destekciler">Destekçilerimiz</a></li>
-      <li><a href="#iletisim" class="apply">Başvurun</a></li>
+      <li><a href="index.html#supporters">Supporters</a></li>
+      <li><a href="contact.html" class="apply">Apply Now</a></li>
     </ul>
   </div>
 </header>
@@ -253,12 +54,12 @@ footer{background:var(--navy);color:#aebfce;padding:64px 0 0;border-top:1px soli
 <section class="hero">
   <div class="container">
     <div>
-      <span class="kicker">Kâr Amacı Gütmeyen Kuruluş · Est. 2023</span>
-      <h1>Salesforce Ekosisteminde <span>Herkese Eşit Fırsat</span></h1>
-      <p>Göçmenler, gençler ve kadınlar dahil farklı ve azınlık geçmişlerden gelen bireyleri eğitim, mentorluk, danışmanlık ve kaynaklarla güçlendiriyoruz. Amacımız teknoloji sektöründe çeşitliliği, kapsayıcılığı ve hakkaniyeti büyütmek.</p>
-      <a href="#iletisim" class="btn btn-primary">Programlara Başvurun</a>
+      <span class="kicker">Non-Profit Organization · Est. 2023</span>
+      <h1>Equal Opportunity for Everyone in the <span>Salesforce Ecosystem</span></h1>
+      <p>We empower individuals from diverse and minority backgrounds — including migrants, young people and women — with training, mentorship, consulting and resources. Our mission is to promote diversity, inclusivity and equity within the tech industry.</p>
+      <a href="contact.html" class="btn btn-primary">Apply to Our Programs</a>
       &nbsp;&nbsp;
-      <a href="#hakkimizda" class="btn btn-outline">Bizi Tanıyın</a>
+      <a href="about.html" class="btn btn-outline">Get to Know Us</a>
     </div>
     <div class="hero-art">
       <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
@@ -285,38 +86,39 @@ footer{background:var(--navy);color:#aebfce;padding:64px 0 0;border-top:1px soli
 </section>
 
 <!-- ============ SUCCESS STORIES (carousel) ============ -->
-<section class="story" id="basari">
+<section class="story" id="stories">
   <div class="container">
     <div class="slide active">
-      <div class="avatar">KD</div>
-      <blockquote>“Bambaşka bir sektörden geliyordum. Salesforce Admin eğitimi ve mentorumun desteğiyle bir yıl içinde ekosistemde ilk işime başladım.”</blockquote>
-      <div class="who"><b>Program Mezunu</b><span>Kariyer Değişimi Programı</span></div>
+      <div class="avatar">CC</div>
+      <blockquote>“I came from a completely different industry. Thanks to the Salesforce Admin training and my mentor's support, I landed my first role in the ecosystem within a year.”</blockquote>
+      <div class="who"><b>Program Graduate</b><span>Career Change Program</span></div>
     </div>
     <div class="slide">
       <div class="avatar">MP</div>
-      <blockquote>“Mentorluk programı bana sadece teknik bilgi değil, sektörde bir ağ ve özgüven kazandırdı. Teknolojide kadınların yerinin olduğunu burada gördüm.”</blockquote>
-      <div class="who"><b>Mentorluk Katılımcısı</b><span>Kadınlar İçin Teknoloji Programı</span></div>
+      <blockquote>“The mentorship program gave me more than technical knowledge — it gave me a network and confidence. This is where I saw that women belong in tech.”</blockquote>
+      <div class="who"><b>Mentorship Participant</b><span>Women in Tech Program</span></div>
     </div>
     <div class="slide">
-      <div class="avatar">SP</div>
-      <blockquote>“Staj programında gerçek bir NPSP projesinde çalıştım. Mezun olduğumda CV'mde gerçek proje deneyimi vardı ve bu her kapıyı açtı.”</blockquote>
-      <div class="who"><b>Staj Programı Mezunu</b><span>Gençlik Programı</span></div>
+      <div class="avatar">IP</div>
+      <blockquote>“During my internship I worked on a real NPSP project. When I graduated, I had real project experience on my CV — and it opened every door.”</blockquote>
+      <div class="who"><b>Internship Graduate</b><span>Youth Program</span></div>
     </div>
     <div class="dots">
-      <button class="on" onclick="goSlide(0)" aria-label="1. yorum"></button>
-      <button onclick="goSlide(1)" aria-label="2. yorum"></button>
-      <button onclick="goSlide(2)" aria-label="3. yorum"></button>
+      <button class="on" onclick="goSlide(0)" aria-label="Story 1"></button>
+      <button onclick="goSlide(1)" aria-label="Story 2"></button>
+      <button onclick="goSlide(2)" aria-label="Story 3"></button>
     </div>
   </div>
 </section>
 
-<!-- ============ HAKKIMIZDA ============ -->
-<section id="hakkimizda" class="about">
+<!-- ============ ABOUT ============ -->
+<section id="about" class="about">
   <div class="container">
     <div>
-      <h2 class="section-title">Hakkımızda</h2>
-      <p>ChangeForce Foundation; göçmenler, gençler ve kadınlar dahil olmak üzere farklı ve azınlık geçmişlerden gelen bireylerin Salesforce ekosistemindeki kariyer fırsatlarına erişebilmesi için eğitim, mentorluk, danışmanlık ve kaynak sağlayan kâr amacı gütmeyen bir kuruluştur.</p>
-      <p>Misyonumuz; teknoloji sektöründe çeşitliliği, kapsayıcılığı ve hakkaniyeti teşvik etmek ve geçmişi ne olursa olsun herkesin fırsatlara eşit erişimini sağlamaktır.</p>
+      <h2 class="section-title">About Us</h2>
+      <p>ChangeForce Foundation is a non-profit dedicated to providing training, mentorship, consulting and resources to empower individuals from diverse and minority backgrounds — including migrants, young people and women — to gain access to career opportunities within the Salesforce ecosystem.</p>
+      <p>Our mission is to promote diversity, inclusivity and equity within the tech industry and to ensure that everyone, regardless of their background, has equal access to opportunities.</p>
+      <a class="link-more" href="about.html">Learn more about us →</a>
       <div class="chips">
         <span class="chip">Salesforce Admin</span>
         <span class="chip">Salesforce Training</span>
@@ -334,31 +136,31 @@ footer{background:var(--navy);color:#aebfce;padding:64px 0 0;border-top:1px soli
       </div>
     </div>
     <div class="facts">
-      <div class="row"><b>Kuruluş</b><span>2023</span></div>
-      <div class="row"><b>Sektör</b><span>BT Sistemi Eğitimi ve Desteği</span></div>
-      <div class="row"><b>Ekip Büyüklüğü</b><span>11–50 çalışan ve gönüllü</span></div>
-      <div class="row"><b>Odak Gruplar</b><span>Göçmenler, gençler, kadınlar</span></div>
+      <div class="row"><b>Founded</b><span>2023</span></div>
+      <div class="row"><b>Industry</b><span>IT System Training &amp; Support</span></div>
+      <div class="row"><b>Team Size</b><span>11–50 employees &amp; volunteers</span></div>
+      <div class="row"><b>Focus Groups</b><span>Migrants, young people, women</span></div>
       <div class="row"><b>Web</b><span>changeforcefoundation.org</span></div>
     </div>
   </div>
 </section>
 
 <!-- ============ PROGRAMS: 3 image-top cards ============ -->
-<section id="programlar" class="expertise">
+<section id="programs" class="expertise">
   <div class="container center">
-    <h2 class="section-title">Programlarımız</h2>
-    <p class="section-sub">Salesforce ekosisteminde kariyere giden yolda ihtiyacınız olan her adım: eğitim, birebir mentorluk ve gerçek proje deneyimi.</p>
+    <h2 class="section-title">Our Programs</h2>
+    <p class="section-sub">Every step you need on the path to a Salesforce career: training, one-on-one mentorship and real project experience.</p>
     <div class="grid-3" style="text-align:left">
       <div class="xcard">
         <div class="visual v1">
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"/></svg>
         </div>
         <div class="body">
-          <h3>Salesforce Eğitimleri</h3>
-          <p>Salesforce Admin ve Business Analyst rollerine hazırlayan, sıfırdan başlayanlara uygun, uygulamalı ve sertifika odaklı eğitim programları.</p>
+          <h3>Salesforce Training</h3>
+          <p>Hands-on, certification-oriented training programs preparing you for Salesforce Admin and Business Analyst roles — suitable for complete beginners.</p>
           <div class="actions">
-            <a class="link-more" href="#uzmanlik">Detaylı Bilgi →</a>
-            <a class="btn btn-primary" href="#iletisim">Başvurun</a>
+            <a class="link-more" href="salesforce-training.html">Learn More →</a>
+            <a class="btn btn-primary" href="contact.html">Apply</a>
           </div>
         </div>
       </div>
@@ -367,11 +169,11 @@ footer{background:var(--navy);color:#aebfce;padding:64px 0 0;border-top:1px soli
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <div class="body">
-          <h3>Mentorluk &amp; Staj</h3>
-          <p>Ekosistemde çalışan deneyimli profesyonellerle birebir mentorluk ve gerçek projelerde staj imkânı; ilk iş deneyiminizi bizimle kazanın.</p>
+          <h3>Mentorship &amp; Internship</h3>
+          <p>One-on-one mentorship from experienced ecosystem professionals and internship opportunities on real projects — gain your first work experience with us.</p>
           <div class="actions">
-            <a class="link-more" href="#uzmanlik">Detaylı Bilgi →</a>
-            <a class="btn btn-primary" href="#iletisim">Başvurun</a>
+            <a class="link-more" href="mentorship.html">Learn More →</a>
+            <a class="btn btn-primary" href="contact.html">Apply</a>
           </div>
         </div>
       </div>
@@ -380,11 +182,11 @@ footer{background:var(--navy);color:#aebfce;padding:64px 0 0;border-top:1px soli
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 2a7 7 0 0 1 7 7c0 2.4-1.2 4.5-3 5.7V17a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.3C6.2 13.5 5 11.4 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg>
         </div>
         <div class="body">
-          <h3>NonProfit Danışmanlığı</h3>
-          <p>Sivil toplum kuruluşlarına NonProfit Success Pack (NPSP), CRM ve dijitalleşme danışmanlığı; stajyerlerimiz bu projelerde deneyim kazanır.</p>
+          <h3>NonProfit Consulting</h3>
+          <p>NonProfit Success Pack (NPSP), CRM and digitization consulting for non-profit organizations — our interns gain experience on these real projects.</p>
           <div class="actions">
-            <a class="link-more" href="#uzmanlik">Detaylı Bilgi →</a>
-            <a class="btn btn-primary" href="#iletisim">Başvurun</a>
+            <a class="link-more" href="consulting.html">Learn More →</a>
+            <a class="btn btn-primary" href="contact.html">Apply</a>
           </div>
         </div>
       </div>
@@ -393,50 +195,50 @@ footer{background:var(--navy);color:#aebfce;padding:64px 0 0;border-top:1px soli
 </section>
 
 <!-- ============ EXPERTISE AREAS: uniform grid ============ -->
-<section id="uzmanlik">
+<section id="expertise">
   <div class="container center">
-    <h2 class="section-title">Uzmanlık Alanlarımız</h2>
-    <p class="section-sub">Katılımcılarımızı ekosistemin en çok aranan rollerine hazırlıyor, STK'ları dijital dönüşümlerinde destekliyoruz.</p>
+    <h2 class="section-title">Our Areas of Expertise</h2>
+    <p class="section-sub">We prepare our participants for the ecosystem's most in-demand roles and support NGOs in their digital transformation.</p>
     <div class="grid-services">
       <div class="service">
         <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#17c3e6" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
         <h4>Salesforce Admin</h4>
-        <p>Ekosisteme giriş kapısı olan yönetici rolü için uçtan uca eğitim.</p>
+        <p>End-to-end training for the admin role — the gateway into the ecosystem.</p>
       </div>
       <div class="service">
         <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3fbf3f" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 17v-5m4 5V7m4 10v-3"/></svg></div>
         <h4>SF Business Analyst</h4>
-        <p>İş ihtiyacını çözüme çeviren analistlik yetkinlikleri.</p>
+        <p>The analyst skills that turn business needs into solutions.</p>
       </div>
       <div class="service">
         <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2196f3" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h4>Mentorluk</h4>
-        <p>Deneyimli profesyonellerden birebir rehberlik ve sektör ağı.</p>
+        <h4>Mentorship</h4>
+        <p>One-on-one guidance and an industry network from experienced professionals.</p>
       </div>
       <div class="service">
         <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#17c3e6" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
-        <h4>Staj Programı</h4>
-        <p>Gerçek projelerde ilk iş deneyimi ve referans imkânı.</p>
+        <h4>Internship</h4>
+        <p>First work experience and references on real projects.</p>
       </div>
       <div class="service">
         <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3fbf3f" stroke-width="2"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3 12 12"/><path d="M16 3h5v5"/></svg></div>
-        <h4>Kariyer Değişimi</h4>
-        <p>Farklı sektörlerden teknolojiye geçiş için yol haritası ve destek.</p>
+        <h4>Career Change</h4>
+        <p>A roadmap and support for moving into tech from any industry.</p>
       </div>
       <div class="service">
         <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2196f3" stroke-width="2"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M12 3v8m-4-4 4 4 4-4"/></svg></div>
         <h4>CRM &amp; NPSP</h4>
-        <p>STK'lar için NonProfit Success Pack ve CRM çözümleri.</p>
+        <p>NonProfit Success Pack and CRM solutions for NGOs.</p>
       </div>
       <div class="service">
         <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#17c3e6" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg></div>
-        <h4>Dijitalleşme</h4>
-        <p>Kuruluşların dijital dönüşüm yolculuğunda danışmanlık.</p>
+        <h4>Digitization</h4>
+        <p>Consulting for organizations on their digital transformation journey.</p>
       </div>
       <div class="service">
         <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3fbf3f" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        <h4>Çeşitlilik &amp; Denge</h4>
-        <p>Kapsayıcı çalışma kültürü ve iş-yaşam dengesi savunuculuğu.</p>
+        <h4>Diversity &amp; Balance</h4>
+        <p>Advocating for inclusive workplace culture and work-life balance.</p>
       </div>
     </div>
   </div>
@@ -446,73 +248,73 @@ footer{background:var(--navy);color:#aebfce;padding:64px 0 0;border-top:1px soli
 <section id="blog" class="blog">
   <div class="container">
     <div class="center">
-      <h2 class="section-title">Blog &amp; Kaynaklar</h2>
-      <p class="section-sub" style="margin-left:auto;margin-right:auto">Salesforce ekosisteminde kariyere dair rehberler, program haberleri ve başarı hikayeleri.</p>
+      <h2 class="section-title">Blog &amp; Resources</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto">Guides on Salesforce careers, program news and success stories.</p>
     </div>
     <div class="blog-wrap">
-      <a href="#" class="bcard bfeat">
+      <a href="blog.html" class="bcard bfeat">
         <div class="thumb t1">🚀</div>
         <div class="body">
-          <span class="date">Haziran 2026</span>
-          <h3>Salesforce Ekosisteminde Kariyere Başlamak: Adım Adım Yol Haritası</h3>
-          <p>Hiç teknoloji deneyiminiz olmasa bile Salesforce ekosisteminde kariyer mümkün. Trailhead'den ilk sertifikaya, mentorluktan ilk işe uzanan yolu adım adım anlattık.</p>
+          <span class="date">June 2026</span>
+          <h3>Starting a Career in the Salesforce Ecosystem: A Step-by-Step Roadmap</h3>
+          <p>A Salesforce career is possible even with zero tech experience. From Trailhead to your first certification, from mentorship to your first job — we mapped out the path step by step.</p>
         </div>
       </a>
       <div class="blog-side">
-        <a href="#" class="bcard">
+        <a href="blog.html" class="bcard">
           <div class="thumb t2">👩‍💻</div>
           <div class="body">
-            <span class="date">Mayıs 2026</span>
-            <h3>Teknolojide Kadınlar: Ekosistemde Fark Yaratan Hikayeler</h3>
+            <span class="date">May 2026</span>
+            <h3>Women in Tech: Stories Making a Difference in the Ecosystem</h3>
           </div>
         </a>
-        <a href="#" class="bcard">
+        <a href="blog.html" class="bcard">
           <div class="thumb t3">📜</div>
           <div class="body">
-            <span class="date">Nisan 2026</span>
-            <h3>Salesforce Admin Sertifikasına Hazırlık İpuçları</h3>
+            <span class="date">April 2026</span>
+            <h3>Tips for Preparing for the Salesforce Admin Certification</h3>
           </div>
         </a>
-        <a href="#" class="bcard">
+        <a href="blog.html" class="bcard">
           <div class="thumb t4">🤝</div>
           <div class="body">
-            <span class="date">Mart 2026</span>
-            <h3>NPSP ile STK'nızı Dijitalleştirin: Başlangıç Rehberi</h3>
+            <span class="date">March 2026</span>
+            <h3>Digitize Your NGO with NPSP: A Getting-Started Guide</h3>
           </div>
         </a>
-        <a href="#" class="bcard">
+        <a href="blog.html" class="bcard">
           <div class="thumb t5">🔄</div>
           <div class="body">
-            <span class="date">Şubat 2026</span>
-            <h3>Kariyer Değişimi: 40'ından Sonra Teknolojiye Geçenler</h3>
+            <span class="date">February 2026</span>
+            <h3>Career Change: Moving into Tech After 40</h3>
           </div>
         </a>
       </div>
     </div>
-    <div class="center-link"><a href="#" class="btn btn-outline">Tamamını Gör</a></div>
+    <div class="center-link"><a href="blog.html" class="btn btn-outline">View All</a></div>
   </div>
 </section>
 
 <!-- ============ SUPPORTERS STRIP ============ -->
-<section id="destekciler" class="refs">
+<section id="supporters" class="refs">
   <div class="container">
-    <h2>DESTEKÇİLERİMİZ VE İŞ ORTAKLARIMIZ</h2>
+    <h2>OUR SUPPORTERS AND PARTNERS</h2>
     <div class="refs-row">
-      <div class="ref">DESTEKÇİ 1</div>
-      <div class="ref">DESTEKÇİ 2</div>
-      <div class="ref">DESTEKÇİ 3</div>
-      <div class="ref">DESTEKÇİ 4</div>
-      <div class="ref">DESTEKÇİ 5</div>
+      <div class="ref">SUPPORTER 1</div>
+      <div class="ref">SUPPORTER 2</div>
+      <div class="ref">SUPPORTER 3</div>
+      <div class="ref">SUPPORTER 4</div>
+      <div class="ref">SUPPORTER 5</div>
     </div>
   </div>
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section id="iletisim" class="contact">
+<section id="contact" class="contact">
   <div class="container">
     <div class="info">
-      <h2>Bize Ulaşın</h2>
-      <p>Programlarımıza katılmak, gönüllü ya da mentor olmak veya kuruluşunuz adına iş birliği yapmak için formu doldurun; ekibimiz en kısa sürede sizinle iletişime geçsin.</p>
+      <h2>Get in Touch</h2>
+      <p>Whether you want to join our programs, volunteer or mentor, or partner with us on behalf of your organization — fill in the form and our team will get back to you shortly.</p>
       <div class="line">
         <div class="dot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#17c3e6" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <span>changeforcefoundation.org</span>
@@ -526,22 +328,22 @@ footer{background:var(--navy);color:#aebfce;padding:64px 0 0;border-top:1px soli
         <a href="https://www.linkedin.com/company/changeforce-foundation/" target="_blank" rel="noopener" style="color:#dbe7f1;text-decoration:underline">LinkedIn: ChangeForce Foundation</a>
       </div>
     </div>
-    <form onsubmit="event.preventDefault(); alert('Mesajınız için teşekkürler! En kısa sürede dönüş yapacağız.');">
-      <label for="ad">Adınız *</label>
-      <input id="ad" type="text" required>
-      <label for="soyad">Soyadınız *</label>
-      <input id="soyad" type="text" required>
-      <label for="email">E-Posta *</label>
+    <form onsubmit="event.preventDefault(); alert('Thank you for your message! We will get back to you shortly.');">
+      <label for="fname">First Name *</label>
+      <input id="fname" type="text" required>
+      <label for="lname">Last Name *</label>
+      <input id="lname" type="text" required>
+      <label for="email">Email *</label>
       <input id="email" type="email" required>
-      <label for="tel">Telefon</label>
-      <input id="tel" type="tel">
-      <label for="mesaj">Mesajınız *</label>
-      <textarea id="mesaj" rows="4" required placeholder="Hangi programla ilgilendiğinizi yazabilirsiniz"></textarea>
+      <label for="phone">Phone</label>
+      <input id="phone" type="tel">
+      <label for="message">Your Message *</label>
+      <textarea id="message" rows="4" required placeholder="Tell us which program you are interested in"></textarea>
       <div class="consent">
-        <input id="kvkk" type="checkbox" required>
-        <label for="kvkk" style="margin:0;font-weight:400">Kişisel verilerimin <a href="#" style="color:var(--cyan)">Aydınlatma Metni</a> kapsamında işlenmesini kabul ediyorum. *</label>
+        <input id="consent" type="checkbox" required>
+        <label for="consent" style="margin:0;font-weight:400">I consent to the processing of my personal data in accordance with the <a href="#" style="color:var(--cyan)">Privacy Notice</a>. *</label>
       </div>
-      <button class="btn btn-primary" type="submit">Gönder</button>
+      <button class="btn btn-primary" type="submit">Send</button>
     </form>
   </div>
 </section>
@@ -552,37 +354,37 @@ footer{background:var(--navy);color:#aebfce;padding:64px 0 0;border-top:1px soli
     <div class="foot-grid">
       <div>
         <img src="logo.png" alt="ChangeForce Foundation">
-        <p>Farklı geçmişlerden bireylerin Salesforce ekosisteminde kariyer fırsatlarına eşit erişimi için çalışan kâr amacı gütmeyen kuruluş.</p>
+        <p>A non-profit working for equal access to career opportunities in the Salesforce ecosystem for people from diverse backgrounds.</p>
       </div>
       <div>
-        <h5>Kurumsal</h5>
+        <h5>Organization</h5>
         <ul>
-          <li><a href="#">Ana Sayfa</a></li>
-          <li><a href="#hakkimizda">Hakkımızda</a></li>
-          <li><a href="#programlar">Programlarımız</a></li>
-          <li><a href="#destekciler">Destekçilerimiz</a></li>
-          <li><a href="#iletisim">İletişim</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="index.html#programs">Programs</a></li>
+          <li><a href="index.html#supporters">Supporters</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div>
-        <h5>Kaynaklar</h5>
+        <h5>Resources</h5>
         <ul>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#basari">Başarı Hikayeleri</a></li>
-          <li><a href="#blog">Sık Sorulan Sorular</a></li>
-          <li><a href="#iletisim">Gönüllü Olun</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#stories">Success Stories</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Volunteer With Us</a></li>
         </ul>
       </div>
       <div>
-        <h5>Yasal</h5>
+        <h5>Legal</h5>
         <ul>
-          <li><a href="#">Gizlilik Politikası</a></li>
-          <li><a href="#">KVKK Aydınlatma Metni</a></li>
-          <li><a href="#">Çerez Politikası</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Data Protection Notice</a></li>
+          <li><a href="#">Cookie Policy</a></li>
         </ul>
       </div>
       <div>
-        <h5>İletişim</h5>
+        <h5>Contact</h5>
         <p>info@changeforcefoundation.org<br>changeforcefoundation.org</p>
         <div class="social" style="margin-top:14px">
           <a href="https://www.linkedin.com/company/changeforce-foundation/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.27c-.97 0-1.75-.79-1.75-1.76s.78-1.76 1.75-1.76 1.75.79 1.75 1.76-.78 1.76-1.75 1.76zm13.5 12.27h-3v-5.6c0-3.37-4-3.11-4 0v5.6h-3v-11h3v1.77c1.4-2.59 7-2.78 7 2.48v6.75z"/></svg></a>
@@ -591,7 +393,7 @@ footer{background:var(--navy);color:#aebfce;padding:64px 0 0;border-top:1px soli
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2023 – 2026 ChangeForce Foundation. Tüm hakları saklıdır.</span>
+      <span>© 2023 – 2026 ChangeForce Foundation. All rights reserved.</span>
       <span>changeforcefoundation.org</span>
     </div>
   </div>
